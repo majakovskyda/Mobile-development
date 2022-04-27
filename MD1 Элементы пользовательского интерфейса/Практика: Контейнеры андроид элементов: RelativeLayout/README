@@ -1,1 +1,63 @@
+android:layout_alignParentRight="true"/>
+Данная функция отвечает за то, чтобы элементы приклеивались к правой стороне экране
+
+Можно также сделать приклеивание к левой стороне с помощью функции
+android:layout_alignParentLeft="true"/>
+
+А если прописать и левый и правый вариант, то кнопка приклеиться к двум сторонам сразу и будет на всю длину экрана:
+android:layout_alignParentRight="true"/>
+android:layout_alignParentLeft="true"/>
+
+Выравнивание другого элемента относительно другого
+В AS существует идентификаторы android:id="@+id/"/>
+Они нужны для того, чтобы можно было ссылаться с одной функции в другую. В данный момент нам необходимо, чтобы одна кнопка была под другой. 
+Для этого используем идентификаторы и функцию android:layout_alignParentRight
+
+Итог:
+
+Задание относительных размеров элементов:
+
+функция android:layout_toLeftOf="@id/time"
+отвечает за расположение относительно какого-либо элемента.
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:hint="Введите имя"/>
+
+    <EditText
+        android:layout_width="0"
+        android:layout_height="wrap_content"
+        android:id="@+id/date"
+        android:hint="Введите дату"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/time"
+        android:layout_below="@id/name"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/time"
+        android:hint="Время"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/name"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Отправить"
+        android:layout_below="@id/time"
+        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@id/time"/>
+
+</RelativeLayout>
 
