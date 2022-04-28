@@ -1,1 +1,30 @@
+Объявление класса MainActivity - главный экран нашего приложения
+
+Этот класс наследуется от класса AppCompatActivity. 
+onCreate - класс жизненной активности, который запускается, когда активность создается. 
+Иначе говоря, точка входа в приложение. Он состоить из двух инструкций. 
+
+1 - super.onCreate(savedInstanceState);
+вызывает метод суперкласса, после его вызова мы начинаем осуществлять свои собственные методы 
+
+2 - setContentView(R.layout.activity_main);
+этот метод связывает активность с макетом, то есть с HTML файлом.
+
+Разбор <TextView>
+
+android:layout_height="wrap_content"
+android:layout_width="wrap_content" 
+В этих двух функциях прописывается разметка элемента, которое необходимо для текста, чтобы все поместилось так, как надо
+
+android:text="Hello World!"
+В этой функции прописывается текст, который мы хотим увидеть на экране
+
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintLeft_toLeftOf="parent"
+app:layout_constraintRight_toRightOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+Эти функции задают позиционирование этого элемента в ConstraintLayout
+
+Как обращаться к справке:
+https://developer.android.com/
 
