@@ -1,1 +1,39 @@
+Создадим кнопку:
 
+При добавлении любых элементов, они ставятся поочередно горизонтально слева направо. 
+Если мы создадим большое количество элементов без ориентира, то они не переносятся, как текст, на другую строку, мы их просто не увидим.
+
+android:orientation="vertical"
+отвечает за то, как будут располагаться наши элементы
+
+Практический пример верстки линейным контейнером:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_height="match_parent"
+   android:layout_width="match_parent"
+   android:orientation="vertical"
+   android:padding="15px"
+   >
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:hint="Имя" />
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:hint="Фамилия"/>
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:hint="Адрес"/>
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="2"/>
+   <Button
+       android:layout_width="200dp"
+       android:layout_height="wrap_content"
+       android:layout_gravity="right"
+       android:text="Отправить"/>
+</LinearLayout>
