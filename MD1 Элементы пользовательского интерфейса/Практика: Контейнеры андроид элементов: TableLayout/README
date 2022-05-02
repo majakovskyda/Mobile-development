@@ -1,1 +1,90 @@
+Рассмотрим пример визуализации TableLayout
 
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:text="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <Button
+            android:text="2"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <Button
+            android:text="3"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:text="4"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <Button
+            android:text="5"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <Button
+            android:text="6"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:text="7"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <Button
+            android:text="8"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <Button
+            android:text="9"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+    </TableRow>
+</TableLayout>
+
+
+Что мы можем наблюдать, если изменим имя одной из наших кнопок?
+Например, возьмем "5". 
+
+<Button
+  android:text="Button 5"
+  android:layout_height="wrap_content"
+  android:layout_width="wrap_content"/>
+  
+ Размеры остальных кнопок и этой скоректируются в размере с 5 кнопкой!
+ Размер кнопки определяется её ячейкой.
+ 
+ Существует атрибут android:layout_column="" ,
+ который задает в каком столбце этот элемент будет находится
+ (конолнки намеруются по умолчанию с 0)
+ 
+ То есть мы можем менять расположение с помощью цифр android:layout_column="1" , android:layout_column="2" и т.д.
+ Порядок приоритетнее. То есть, если мы напишем в первой кнопке то, что он находится в 2, а во второй, то, что находится в 1 - ничего не изменится!
+ 
+ android:layout_weight="1" - позволяет расширить колонку на всю длину экрана.
+ 
+ android:layout_span="..." - задает количество колонок, на которое этот элемент будет расширен
+ 
+ android:layout_margin="...dp" - параметр марджин - это внешний отступ от данного элемента до внешних границ
+ 
+ android:layout_gravity="..." - (top/botton/left/center и т.д)
