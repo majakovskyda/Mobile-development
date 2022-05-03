@@ -14,8 +14,9 @@ mvMain - индификатор
 
 
 Работа в MainActivity.java:
-импорт WebView
+импорт:
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 получаем ссылку, допустим на гугл:
 WebView wvMain = findViewById(R.id.mvMain); ---- ссылка на объект
