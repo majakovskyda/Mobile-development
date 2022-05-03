@@ -18,8 +18,8 @@ mvMain - индификатор
 import android.webkit.WebView;
 
 получаем ссылку, допустим на гугл:
-WebView wvMain = findViewById(R.id.mvMain);
-        mvMain.loadUrl("google.com");
+WebView wvMain = findViewById(R.id.mvMain); ---- ссылка на объект
+        mvMain.loadUrl("google.com"); --- загрузка страницы 
 
 где,
 WebView - тип переменной
