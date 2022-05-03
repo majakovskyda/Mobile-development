@@ -25,3 +25,9 @@ WebView wvMain = findViewById(R.id.mvMain); ---- ссылка на объект
 WebView - тип переменной
 wvMain - название элемента
 findViewById(R.id. ...) - ссылка id на activity_main.xml --> WebView с помощью android:id="@+id/mvMain"
+
+
+Работа в AndroidManifest.xml:
+
+создание подключения к интернету:
+<uses-permission android:name="android.permission.INTERNET"/>
