@@ -399,3 +399,70 @@ android:layout_marginLeft="20dp"
         android:text="gravity = center">
     </Button>
 </FrameLayout> (Фото №9)
+
+Значения атрибутов элементов приложения, как мы знаем, могут быть ссылками на ресурсы. 
+Раньше мы использовали это только для выделения строк. Но этот же механизм можно использовать для создания аналога стилей в приложении. 
+Давайте рассмотрим, как можно воспользоваться файлами ресурсов для изолированного хранения значений атрибутов оформления элементов. 
+Заодно рассмотрим еще несколько атрибутов оформления.
+
+Создадим простое окно, состоящее из двух одинаковых частей: верхней и нижней. В каждой расположен надпись и кнопка:
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/llTop"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/tvTop"
+            android:layout_marginTop="30dp">
+        </TextView>
+        <Button
+            android:text="Button"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btnTop"
+            android:layout_width="wrap_content">
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/llBottom"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/tvBottom"
+            android:layout_marginTop="30dp">
+        </TextView>
+        <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btnBottom">
+        </Button>
+    </LinearLayout>
+</LinearLayout> (Фото №10)
+
+Теперь добавим оформления. Для того, чтобы все ресурсы, используемые для оформления этого приложения хранились вместе, 
+создадим новый файл ресурсов и назовем его, скажем, MyRes:
+
+
