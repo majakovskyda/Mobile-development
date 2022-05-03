@@ -171,6 +171,43 @@ p.s документация : https://developer.android.com/guide/topics/ui/lay
 Например, мы хотим создать поле ввода на всю ширину экрана, а под ним две кнопки так, чтобы они были выровнены справа к границе этого поля ввода. 
 Для этого проще всего описать это расположения с помощью атрибутов RelativeLayout:
 
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type here:">
+    </TextView>
+
+    <EditText
+        android:id="@+id/entry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label"
+        android:background="@android:drawable/editbox_background">
+    </EditText>
+
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/entry"
+        android:layout_marginLeft="10dip"
+        android:text="OK">
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ok"
+        android:layout_toLeftOf="@+id/ok"
+        android:text="Cancel">
+    </Button>
+</RelativeLayout> (Фото №5)
 
 
