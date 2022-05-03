@@ -31,7 +31,7 @@ findViewById(R.id. ...) - ссылка id на activity_main.xml --> WebView с 
 тем самым наш сайт как бы встроен в приложение
 wvMain.setWebViewClient(new WebViewClient());
 
-Создание полноценного сайта
+Создание полноценного сайта без ограничений
 WebSettings settings = wvMain.getSettings();
         settings.setJavaScriptEnabled(true);
 
