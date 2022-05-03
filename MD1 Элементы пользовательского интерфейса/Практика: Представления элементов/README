@@ -465,4 +465,42 @@ android:layout_marginLeft="20dp"
 Теперь добавим оформления. Для того, чтобы все ресурсы, используемые для оформления этого приложения хранились вместе, 
 создадим новый файл ресурсов и назовем его, скажем, MyRes:
 
+Открываем папку strings.xml и ставим следующие значения:
+
+<resources>
+    <string name="tvTopText">Верхний текст</string>
+    <string name="btnTopText">Верхняя кнопка</string>
+    <string name="tvBottomText">Нижний текст</string>
+    <string name="btnBottomText">Нижняя кнопка</string>
+    <color name="llTopColor">#336699</color>
+    <color name="llBottomColor">#339966</color>
+</resources> (Фото №11)
+
+Теперь можем приступить к изменению фона и других параметров:
+Зададим, например, фоновый цвет верхнего LinearLayout:
+
+android:background="@color/llTopColor"
+android:orientation="vertical">
+
+текст верхней надписи:
+android:text="@string/tvTopText"></TextView>
+
+и текст на верхней кнопке:
+android:text="@string/btnTopText"></Button>
+
+Итог (Фото №12)
+
+
+
+
+Контрольные вопросы
+1. С помощью какого класса предоставляется доступ к ресурсам из кода Java?
+Ответ:
+2. Какие основные квалификаторы ресурсов вы знаете?
+Ответ:
+3. Какие основные XML-атрибуты используются для задания расположения виджета на экране?
+Ответ:
+4. Какие основные XML-атрибуты используются для задания отображения виджета на экране?
+Ответ:
+
 
