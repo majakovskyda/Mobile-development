@@ -7,10 +7,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
         
-@ - 
-+ - 
-id -
-mvMain - 
+@ - означает, что сейчас пойдет обращение к какому-то ресурсу
++ - означает, что мы создаем новый ресурс
+id - означает категорию ресурса
+mvMain - индификатор
 
 
 Работа в MainActivity.java:
@@ -24,3 +24,4 @@ WebView wvMain = findViewById(R.id.mvMain);
 где,
 WebView - тип переменной
 wvMain - название элемента
+findViewById(R.id. ...) - ссылка id на activity_main.xml --> WebView с помощью android:id="@+id/mvMain"
