@@ -26,6 +26,8 @@ WebView - тип переменной
 wvMain - название элемента
 findViewById(R.id. ...) - ссылка id на activity_main.xml --> WebView с помощью android:id="@+id/mvMain"
 
+Создание веб клиента для самостоятельного открытия сайта
+wvMain.setWebViewClient(new WebViewClient());
 
 Работа в AndroidManifest.xml:
 
