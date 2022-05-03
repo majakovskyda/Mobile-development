@@ -31,6 +31,10 @@ findViewById(R.id. ...) - ссылка id на activity_main.xml --> WebView с 
 тем самым наш сайт как бы встроен в приложение
 wvMain.setWebViewClient(new WebViewClient());
 
+Создание полноценного сайта
+WebSettings settings = wvMain.getSettings();
+        settings.setJavaScriptEnabled(true);
+
 если изменить в activity_main.xml - layout_width="match_parent" и layout_height="match_parent" 
 на какие-то другие значения, например 300dp и др. значения, то окно сайта будет не на весь экран 
 и следовательно у нас есть возможность добавить дополнительные кнопки в момент открытия сайта. (Фото №2)
@@ -41,6 +45,10 @@ wvMain.setWebViewClient(new WebViewClient());
 создание подключения к интернету:
 <uses-permission android:name="android.permission.INTERNET"/>
 
+Иногда браузер отключает JavaScript для безопасности сайта и для того, чтобы сделать открытый сайт полноценный необходимо его добавить.
+Необходимо получить доступ с помощью 
 
+WebSettings settings = wvMain.getSettings();
+        settings.setJavaScriptEnabled(true);
 
 
