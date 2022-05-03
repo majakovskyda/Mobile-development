@@ -350,3 +350,52 @@ android:layout_width="match_parent
 Найдем среднюю кнопку (вторая во второй строке) и зададим ей отступ со всех сторон в 50 пикселей:
 android:layout_margin="50dp" (Фото №8)
 
+Так же как и в HTML, можно задавать отступы от элемента с каждой из четырех сторон независимо, например так:
+android:layout_marginTop="50dp"
+android:layout_marginLeft="20dp"
+
+Параметр layout_gravity аналогичен выравниванию из Word или Excel. Удобнее всего продемонстрировать его с использованием FrameLayout. 
+Все помещаемые в него элементы он по умолчанию помещает в левый верхний угол и никак их не выстраивает. 
+Нам это очень подходит для демонстрации настроек выравнивания.
+Продемонстрируем пять элементов, каждый со своей настройкой:
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:text="gravity = top left">
+    </Button>
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:text="gravity = top right">
+    </Button>
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:text="gravity = bottom left">
+    </Button>
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:text="gravity = bottom right">
+    </Button>
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="gravity = center">
+    </Button>
+</FrameLayout> (Фото №8)
