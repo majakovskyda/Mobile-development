@@ -1,1 +1,17 @@
+Работа в activity_main.xml
 
+<WebView
+        android:id="@+id/mvMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+        
+@ - 
++ - 
+id -
+mvMain - 
+
+
+Работа в MainActivity.java
+
+WebView wvMain = findViewById(R.id.mvMain);
+        mvMain.loadUrl("google.com");
