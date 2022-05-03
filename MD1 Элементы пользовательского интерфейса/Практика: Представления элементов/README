@@ -1,1 +1,176 @@
+Представления элементов
+
+Цель работы
+Познакомится с 
+- основными приемами визуального представления элементов приложения, 
+- управления их взаимным расположением, 
+- оформлением, 
+- работы с соответствующими атрибутами из XML и из Java кода. 
+
+Методические указания
+
+В Android SDK существует множество способов группировки элементов, которые называются представлениями (layout). 
+На данном занятии мы изучим основные виды представлений.
+Одним из наиболее простых в понимании является AbsoluteLayout (AL). 
+Он обеспечивает абсолютное позиционирование элементов на экране. Вы указываете координаты для левого верхнего угла компонента.
+
+Рассмотрим произвольный пример:
+
+<AbsoluteLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="42dp"
+        android:layout_y="62dp"
+        android:text="Button">
+    </Button>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="142dp"
+        android:layout_y="131dp"
+        android:text="TextView">
+    </TextView>
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="55dp"
+        android:layout_y="212dp"
+        android:text="CheckBox">
+    </CheckBox>
+
+    <RadioButton
+        android:id="@+id/radioButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="171dp"
+        android:layout_y="318dp"
+        android:text="RadioButton">
+    </RadioButton>
+</AbsoluteLayout> (Фото №1)
+
+
+Обратите внимание, что этот элемент считается устаревшим и не рекомендуется к использованию в серьезных приложения. 
+Наверное, вторым по простоте является линейное представление. Оно размещает все элементы, содержащиеся в нем, последовательно. 
+Создадим простое представление с тремя кнопками.
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+</LinearLayout>
+
+Обратите внимание на атрибут orientation элемента LinearLayout. Он задает направление элементов. 
+В данном случае, три кнопки будут расположены вертикально, то есть одна под другой (Фото №2)
+
+Давайте заменим расположение элементов на горизонтальное, изменив значение соответствующего атрибута:
+android:orientation="horizontal" (Фото №3)
+Мы увидим, что теперь элементы располагаются в ряд, горизонтально.
+
+Помните, что вы можете вкладывать одно представление в другое, комбинируя в произвольном порядке 
+типы упорядочения элементов и получая расположения произвольной сложности. 
+
+Как пример, давайте расположим шесть кнопок в два ряда по три кнопки. 
+Для этого используем только LinearLayout (хотя, существуют более явные способы добиться такого расположения):
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button" />
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button" />
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button" />
+    </LinearLayout>
+</LinearLayout> (Фото №4)
+
+Еще одним типом расположения является RelativeLayout (RL). 
+В этом виде представления каждый элемент может быть расположен определенным образом относительно другого указанного элемента. 
+Используются следующие виды отношений (подробнее в документации):
+
+p.s документация : https://developer.android.com/guide/topics/ui/layout/relative
+
+1) слева, справа, сверху, снизу указанного элемента (layout_toLeftOf, layout_toRightOf, layout_above, layout_below)
+2) выровненным по левому, правому, верхнему, нижнему краю указанного элемента (layout_alignLeft, layout_alignRight, layout_alignTop, layout_alignBottom)
+3) выровненным по левому, правому, верхнему, нижнему краю родителя (layout_alignParentLeft, layout_alignParentRight, layout_alignParentTop, layout_alignParentBottom)
+4) выровненным по центру вертикально, по центру горизонтально, по центру вертикально и горизонтально относительно родителя (layout_centerVertical, layout_centerHorizontal, layout_centerInParent)
+Это представление удобно использовать по смыслу, когда у вас в приложении вид и положение на экране нескольких элементов должны быть координированы между собой. 
+Например, мы хотим создать поле ввода на всю ширину экрана, а под ним две кнопки так, чтобы они были выровнены справа к границе этого поля ввода. 
+Для этого проще всего описать это расположения с помощью атрибутов RelativeLayout:
+
+
+
 
