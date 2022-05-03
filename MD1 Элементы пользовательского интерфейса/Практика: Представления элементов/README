@@ -210,4 +210,60 @@ p.s документация : https://developer.android.com/guide/topics/ui/lay
     </Button>
 </RelativeLayout> (Фото №5)
 
+Еще одним простым представлением является табличное (TableLayout). 
+Оно состоит из строк и вложенных элементов и, в принципе, аналогично элементу <TABLE>  в языке HTML.
+Давайте рассмотрим простой пример:
+
+<TableLayout android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content">
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </TableRow>
+</TableLayout>
+
+Здесь мы видим таблицу, состоящую из двух строк. В первой из них два элемента, во второй - один. (Фото №6)
+
+Android SDK предоставляет широкий набор возможностей для настройки визуальных параметров отображения элементов. 
+Большинство из них настраиваются изменением значений соответствующих атрибутов элементов XML-элемента. 
+Про ширину (layout_width) и высоту (layout_height) мы уже немного знаем. Мы можем указывать для них абсолютные значения, 
+а можем использовать константы. Разберем подробнее эти возможности.
+
+Абсолютные значения:
+Используются следующие единицы измерения (ЕИ):
+dp - Density-independent Pixels. Абстрактная единица, позволяющая приложениям выглядеть одинаково на различных экранах и разрешениях;
+sp - Scale-independent Pixels. То же, что и dp, только используется для размеров шрифта в элементах;
+pt - 1/72 дюйма, определяется по физическому размеру экрана. Это единица из типографии;
+px – пиксель, не рекомендуется использовать т. к. на разных экранах приложение будет выглядеть по-разному;
+mm – миллиметр, определяется по физическому размеру экрана;
+in – дюйм, определяется по физическому размеру экрана;
+Константы
+match_parent (fill_parent) – означает, что элемент займет всю доступную ему в родительском элементе ширину/высоту;
+wrap_content – ширина/высота элемента будет определяться его содержимым;
+
+Для примера рассмотрим простое линейное представление, состоящее из двух кнопок:
+
 
