@@ -1,1 +1,46 @@
+Создаем текст
 
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:textSize="30dp"
+        android:id="@+id/mainText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+Создаем кнопку
+
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMain"
+        android:text="Press me!"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="206dp"
+        tools:ignore="MissingConstraints" />
+        
+Производим адресацию к кнопке и тексту:
+
+TextView tvMain = findViewById(R.id.mainText);
+        Button btnMain = findViewById(R.id.btnMain);
+!ВАЖНО! знать, что когда мы сделали адресацию, то код MainActivity.java заменяет activity_main.xml
+и поэтому текст "Hello World!" не выводится.
+
+после этого делаем обработчика событий 
+
+btnMain.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        tvMain.setText("Hello from Java!");
+                    }
+                }
+        );
+    }
+}
+
+Итог: при нажатии на кнопку текст с "Hello World!" меняется на "Hello from Java!"
