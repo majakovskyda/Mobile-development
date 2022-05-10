@@ -7,3 +7,66 @@
 Создайте простое приложение-кликер. Главное и единственное окно приложения должно демонстрировать кнопку с надписью “Нажми меня” 
 и надпись “Вы нажали кнопку 0 раз”. При каждом нажатии на кнопку, надпись соответствующим образом изменяется. 
 
+добавляем текст и кнопки:
+
+activity_main.xml
+
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Press me!"
+        android:textSize="20dp"
+        android:id="@+id/btnMain"
+        app:layout_constraintBottom_toTopOf="@id/mainText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="And me!"
+        android:textSize="20dp"
+        android:id="@+id/btnSecond"
+        app:layout_constraintBottom_toTopOf="@id/mainText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello world!"
+        android:textSize="30dp"
+        android:id="@+id/mainText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+        
+MainActivity.java:
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        TextView tvMain = findViewById(R.id.mainText);
+        Button btnMain = findViewById(R.id.btnMain);
+        Button btnSecond = findViewById(R.id.btnSecond);
+
+        View.OnClickListener lstn = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tvMain.setText("Hello from Java!");
+            }
+        };
+        btnMain.setOnClickListener(lstn);
+    }
+}
