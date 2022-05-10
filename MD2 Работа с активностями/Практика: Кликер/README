@@ -64,9 +64,33 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener lstn = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvMain.setText("Hello from Java!");
+                tvMain.setText("Hello from Button!");
             }
         };
+        
+        View.OnClickListener lstn2 = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tvMain.setText("Hello from Another Button!");
+        
         btnMain.setOnClickListener(lstn);
+        btnSecond.setOnClickListener(lstn2);
+        
     }
 }
+
+Исходя из этих изменений и добавления второго скрипта для кнопки, мы наблюдаем то, что у нас при по очередном нажатии кнопок меняется текст с 
+Hello from Button! на Hello from Another Button
+
+Пытаемся упростить написание кода и объединяем обработчика событий сразу для ДВУХ кнопок:
+
+View.OnClickListener lstn = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()){
+                    case R.id.btnMain:
+                        tvMain.setText("Hello from Button!");
+                        break;
+                    case R.id.btnSecond:
+                    tvMain.setText("Hello from another Button!");
+                        break;
