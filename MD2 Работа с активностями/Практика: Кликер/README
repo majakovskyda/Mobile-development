@@ -208,7 +208,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 Дополнительные задания
-1. Добавьте в приложение кнопку, которая наоборот, уменьшает счетчик нажатий.
+1. Добавьте в приложение кнопку, которая наоборот, уменьшает счетчик нажатий
+
+Для этого необходимо добавить switch:
+
+@Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.button:
+                score++;
+                tv.setText("Кликов" + score);
+                break;
+            case R.id.button2:
+                score--;
+                tv.setText("Кликов" + score);
+                break;
+
 2. Добавьте кнопку, сбрасывающую счетчик.
 3. Модифицируйте надпись так, чтобы она гласила “Кнопка нажата N раз”. Реализуйте правильное склонение слова “раз”.
 4. Используйте вместо кнопки произвольную картинку.
