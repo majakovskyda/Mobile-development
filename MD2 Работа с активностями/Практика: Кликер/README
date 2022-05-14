@@ -230,3 +230,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 (*) Создайте приложение-калькулятор. Приложение должно предоставлять пользователю возможность вводить числа тапами по кнопкам и с клавиатуры.
 
 
+Приложение - калькулятор:
+
+Создаем верстку:
+
+Создадим переменные:
+
+EditText etFirst, etSecond;
+Button btnPlus, btnMinus, btnMul, btnDiv;
+TextView tvOut;
