@@ -1,1 +1,32 @@
+Практика: Второе окно
+
+Цель работы
+Ознакомиться со способом создания и запуска второго окна в составе мобильного приложения. 
+
+Для того, чтобы интегрировать второе окно в нашу программу необходимо:
+
+
+
+1. Создать кнопку
+ 
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Activity Two"
+        android:id="@+id/btnActTwo">
+    </Button>
+</LinearLayout>
+
+2. Создать второе окно 
+
+Чтобы создать второе окно необходимо добавить его через New -> Activity -> Empty Activity
+
+3. Связать их
+
 
