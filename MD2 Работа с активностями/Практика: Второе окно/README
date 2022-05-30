@@ -3,30 +3,83 @@
 Цель работы
 Ознакомиться со способом создания и запуска второго окна в составе мобильного приложения. 
 
-Для того, чтобы интегрировать второе окно в нашу программу необходимо:
+Создать второе окно довольно легко! Давайте рассмотрим, как это сделать!
+Для начала создадим первое окно:
 
-
-
-1. Создать кнопку
- 
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <Button
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to Activity Two"
-        android:id="@+id/btnActTwo">
-    </Button>
-</LinearLayout>
+        android:text="Первое окно"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-2. Создать второе окно 
+    <Button
+        android:id="@+id/button"
+        android:textSize="20dp"
+        android:text="Перейти"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-Чтобы создать второе окно необходимо добавить его через New -> Activity -> Empty Activity
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-3. Связать их
+Далее, после того, как мы сделали дизайн первого окна, мы начинаем делать функции в Main.Activity.java 
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    Button btnGo;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnGo = findViewById(R.id.button);
+        btnGo.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.button:
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
+    }
+}
+
+
+
+
+
 
 
